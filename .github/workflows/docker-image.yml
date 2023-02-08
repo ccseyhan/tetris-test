@@ -34,9 +34,9 @@ jobs:
         creds: ${{ secrets.AZURE_CREDENTIALS }}
         
     - name: 'Set private registry authentication settings'
-      run: az webapp config container set --name canapp --resource-group app --docker-registry-server-user canhub --docker-registry-server-password ${{ secrets.AZURE_CLIENT_SECRET }}
+      run: az webapp config container set --name canapp2 --resource-group app --docker-registry-server-user canhub --docker-registry-server-password ${{ secrets.AZURE_CLIENT_SECRET }}
         
     - uses: azure/webapps-deploy@v2
       with:
-        app-name: 'canapp'
+        app-name: 'canapp2'
         images: 'canhub.azurecr.io/tetris:latest'
